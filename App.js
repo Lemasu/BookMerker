@@ -1,20 +1,19 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import Buchliste from './komponente/screens/buchliste';
+import BuchErfassen from './komponente/screens/buch_erfassen';
+import ErinnerungSetzen from './komponente/screens/erinnerung_setzen';
 
 export default function App() {
+  const Tab = createBottomTabNavigator();
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Tab.Navigator>
+        <Tab.Screen name="BuchListe" component={Buchliste} />
+        <Tab.Screen name="BuchErfassen" component={BuchErfassen} />
+        <Tab.Screen name="ErinnerungSetzen" component={ErinnerungSetzen} />
+      </Tab.Navigator>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
