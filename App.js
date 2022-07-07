@@ -9,10 +9,46 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="BuchListe" component={Buchliste} />
-        <Tab.Screen name="BuchErfassen" component={BuchErfassen} />
-        <Tab.Screen name="ErinnerungSetzen" component={ErinnerungSetzen} />
+      <Tab.Navigator
+        screenOptions={
+          {
+            tabBarIconStyle: { display: "none" },
+            tabBarLabelPosition: "beside-icon",
+            tabBarLabelStyle: {
+              fontWeight: "bold",
+              flexWrap: "wrap"
+            },
+            tabBarActiveBackgroundColor: "blue",
+            tabBarInactiveBackgroundColor: "skyblue",
+            tabBarActiveTintColor: "white",
+            tabBarInactiveTintColor: "black"
+          }
+        }
+      >
+        <Tab.Screen
+          name="BuchListe"
+          component={Buchliste}
+          options={{
+            headerShown: false,
+            title: "Buchliste"
+          }}
+        />
+        <Tab.Screen
+          name="BuchErfassen"
+          component={BuchErfassen}
+          options={{
+            headerShown: false,
+            title: "Buch erfassen"
+          }}
+        />
+        <Tab.Screen
+          name="ErinnerungSetzen"
+          component={ErinnerungSetzen}
+          options={{
+            headerShown: false,
+            title: "Erinnerung setzen"
+          }}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );
