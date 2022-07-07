@@ -1,9 +1,9 @@
-import { StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, View } from 'react-native';
 
-export default function BuchErfassen() {
+export default function BuchErfassen({ navigation }) {
   return (
     <View style={styles.container}>
-        <Text>Buch erfassen</Text>
+        <Button title="Detailansicht" onPress={() => navigation.navigate("Detailansicht")}></Button>
     </View>
   );
 }

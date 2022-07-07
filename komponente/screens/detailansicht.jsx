@@ -1,9 +1,9 @@
-import { Button, StyleSheet, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 
-export default function Buchliste({ navigation }) {
+export default function Detailansicht() {
   return (
     <View style={styles.container}>
-        <Button title="Detailansicht" onPress={() => navigation.navigate("Detailansicht")}></Button>
+        <Text>Detailansicht</Text>
     </View>
   );
 }

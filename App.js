@@ -1,8 +1,8 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import Buchliste from './komponente/screens/buchliste';
-import BuchErfassen from './komponente/screens/buch_erfassen';
 import ErinnerungSetzen from './komponente/screens/erinnerung_setzen';
+import BuchlisteNavigator from './komponente/buchliste_navigator';
+import BuchErfassenNavigator from './komponente/buch_erfassen_navigator';
 
 export default function App() {
   const Tab = createBottomTabNavigator();
@@ -10,6 +10,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
+      initialRouteName="Booklist"
         screenOptions={
           {
             tabBarIconStyle: { display: "none" },
@@ -26,16 +27,16 @@ export default function App() {
         }
       >
         <Tab.Screen
-          name="BuchListe"
-          component={Buchliste}
+          name="BuchlisteNavigator"
+          component={BuchlisteNavigator}
           options={{
             headerShown: false,
             title: "Buchliste"
           }}
         />
         <Tab.Screen
-          name="BuchErfassen"
-          component={BuchErfassen}
+          name="BuchErfassenNavigator"
+          component={BuchErfassenNavigator}
           options={{
             headerShown: false,
             title: "Buch erfassen"
