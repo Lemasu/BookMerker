@@ -1,3 +1,4 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect, useState } from 'react';
 import { Button, StyleSheet, TextInput, View } from 'react-native';
 
@@ -19,12 +20,50 @@ export default function BuchErfassen({ navigation }) {
     }
   }
 
+  const storeIsbn = async (value, isbn_nummer) => {
+    try {
+      let isbn_array;
+      if (value !== "") {
+        isbn_array = value.split(";");
+      } else {
+        isbn_array = [];
+      }
+      isbn_array.push(isbn_nummer);
+
+      let isbn_string = "";
+      for (let i = 0; i < isbn_array.length; i++) {
+        isbn_string += isbn_array[i];
+        if (i < (isbn_array.length - 1)) {
+          isbn_string += ";"
+        }
+      }
+
+      await AsyncStorage.setItem('isbn', isbn_string);
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
+  const addNewIsbn = async (isbn_nummer) => {
+    try {
+      const value = await AsyncStorage.getItem('isbn');
+      if (value !== null) {
+        storeIsbn(value, isbn_nummer);
+      } else {
+        storeIsbn("", isbn_nummer);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  }
+
   const buchErfassen = () => {
     fetchDataBuch();
   };
 
   useEffect(() => {
     if (buch !== undefined) {
+      addNewIsbn(isbn);
       navigation.navigate("Detailansicht");
     }
   }, [buch]);
