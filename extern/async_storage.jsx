@@ -13,10 +13,6 @@ export async function addNewBuch(isbn_nummer, daten_buch) {
     }
 }
 
-export async function getBuch(isbn_nummer) {
-    const value = await AsyncStorage.getItem(isbn_nummer);
-}
-
 async function storeBuch(value, isbn_nummer, daten_buch) {
     try {
         let isbn_array;
