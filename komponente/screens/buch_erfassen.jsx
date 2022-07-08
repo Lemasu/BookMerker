@@ -20,7 +20,7 @@ export default function BuchErfassen({ navigation }) {
     }
   }
 
-  const storeIsbn = async (value, isbn_nummer) => {
+  const storeIsbn = async (value, isbn_nummer, daten_buch) => {
     try {
       let isbn_array;
       if (value !== "") {
@@ -39,18 +39,19 @@ export default function BuchErfassen({ navigation }) {
       }
 
       await AsyncStorage.setItem('isbn', isbn_string);
+      await AsyncStorage.setItem(isbn_nummer, JSON.stringify(daten_buch));
     } catch (e) {
       console.log(e);
     }
   }
 
-  const addNewIsbn = async (isbn_nummer) => {
+  const addNewIsbn = async (isbn_nummer, daten_buch) => {
     try {
       const value = await AsyncStorage.getItem('isbn');
       if (value !== null) {
-        storeIsbn(value, isbn_nummer);
+        storeIsbn(value, isbn_nummer, daten_buch);
       } else {
-        storeIsbn("", isbn_nummer);
+        storeIsbn("", isbn_nummer, daten_buch);
       }
     } catch (e) {
       console.log(e);
@@ -63,7 +64,7 @@ export default function BuchErfassen({ navigation }) {
 
   useEffect(() => {
     if (buch !== undefined) {
-      addNewIsbn(isbn);
+      addNewIsbn(isbn, buch);
       navigation.navigate("Detailansicht");
     }
   }, [buch]);
