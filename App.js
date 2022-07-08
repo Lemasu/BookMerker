@@ -10,7 +10,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-      initialRouteName="Booklist"
+        initialRouteName="Booklist"
         screenOptions={
           {
             tabBarIconStyle: { display: "none" },
@@ -31,7 +31,8 @@ export default function App() {
           component={BuchlisteNavigator}
           options={{
             headerShown: false,
-            title: "Buchliste"
+            title: "Buchliste",
+            unmountOnBlur: true
           }}
         />
         <Tab.Screen
@@ -39,7 +40,8 @@ export default function App() {
           component={BuchErfassenNavigator}
           options={{
             headerShown: false,
-            title: "Buch erfassen"
+            title: "Buch erfassen",
+            unmountOnBlur: true
           }}
         />
         <Tab.Screen
@@ -47,10 +49,11 @@ export default function App() {
           component={ErinnerungSetzen}
           options={{
             headerShown: false,
-            title: "Erinnerung setzen"
+            title: "Erinnerung setzen",
+            unmountOnBlur: true
           }}
         />
       </Tab.Navigator>
-    </NavigationContainer>
+    </NavigationContainer >
   );
 }
