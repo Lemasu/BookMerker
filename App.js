@@ -31,7 +31,6 @@ export default function App() {
           component={BuchlisteNavigator}
           options={{
             headerShown: false,
-            title: "Buchliste",
             unmountOnBlur: true
           }}
         />
@@ -40,7 +39,6 @@ export default function App() {
           component={BuchErfassenNavigator}
           options={{
             headerShown: false,
-            title: "Buch erfassen",
             unmountOnBlur: true
           }}
         />
@@ -49,7 +47,6 @@ export default function App() {
           component={ErinnerungSetzen}
           options={{
             headerShown: false,
-            title: "Erinnerung setzen",
             unmountOnBlur: true
           }}
         />
