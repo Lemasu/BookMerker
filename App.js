@@ -31,7 +31,7 @@ export default function App() {
           component={BuchlisteNavigator}
           options={{
             headerShown: false,
-            unmountOnBlur: true
+            unmountOnBlur: true // Quelle: https://stackoverflow.com/a/64172598
           }}
         />
         <Tab.Screen
@@ -39,7 +39,7 @@ export default function App() {
           component={BuchErfassenNavigator}
           options={{
             headerShown: false,
-            unmountOnBlur: true
+            unmountOnBlur: true // Quelle: https://stackoverflow.com/a/64172598
           }}
         />
         <Tab.Screen
@@ -47,7 +47,7 @@ export default function App() {
           component={ErinnerungSetzen}
           options={{
             headerShown: false,
-            unmountOnBlur: true
+            unmountOnBlur: true // Quelle: https://stackoverflow.com/a/64172598
           }}
         />
       </Tab.Navigator>
