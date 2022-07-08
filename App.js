@@ -10,7 +10,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <Tab.Navigator
-        initialRouteName="Booklist"
+        initialRouteName="BuchlisteNavigator"
         screenOptions={
           {
             tabBarIconStyle: { display: "none" },
